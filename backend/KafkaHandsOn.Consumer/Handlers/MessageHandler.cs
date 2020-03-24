@@ -19,7 +19,7 @@ public class MessageHandler : IHostedService
             var conf = new ConsumerConfig
             {
                 GroupId = "test-consumer-group",
-                BootstrapServers = "localhost:9092",
+                BootstrapServers = "broker:29092",
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 
