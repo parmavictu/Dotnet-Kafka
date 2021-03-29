@@ -1,14 +1,14 @@
 
 version: '3.7'
 
-
-
 services:
   producerkafka:
     image: producerkafka
     build:
       context: ../backend/KafkaHandsOn.Producer.Api
       dockerfile: Dockerfile
+    depends_on:
+      - broker
     env_file: 
       - producer.env
     ports:
@@ -21,6 +21,8 @@ services:
       dockerfile: Dockerfile
     env_file: 
       - consumer.env
+    depends_on:
+      - broker
 
   zookeeper:
     image: wurstmeister/zookeeper
